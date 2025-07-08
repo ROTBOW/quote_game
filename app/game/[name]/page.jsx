@@ -75,7 +75,7 @@ const Game = () => {
         if (idx + 1 >= 15) {
             addScore({
                 score: score,
-                name: params.name
+                name: params.name.trim()
             }, start, end);
             router.push('/');
         } else {

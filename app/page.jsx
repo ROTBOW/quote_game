@@ -5,6 +5,7 @@
 import { calculateTotalTime } from "@/utils/timeFuncs";
 import getAllScores from "@/firebase/getScoreboard";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const Scoreboard = ({scores}) => {
@@ -46,6 +47,7 @@ const Scoreboard = ({scores}) => {
 const Home = () => {
   const [scoreboard, setscoreboard] = useState(null);
   const [name, setName] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     getAllScores()
@@ -56,6 +58,14 @@ const Home = () => {
     
   }, [])
 
+  const handleStart = () => {
+    if (name.trim() !== '') {
+      router.push(`/game/${name.trim()}`)
+    } else {
+      alert('you need to put a name before you can play!')
+    }
+
+  }
   
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -66,12 +76,12 @@ const Home = () => {
     <div className="flex flex-col">
       <p className="w-[14rem] text-sm">When you hit start (and enter your name) you will see a list of quotes.<br/>You'll score based on how many you get right and how quickly you finish.</p>
       <input type='text' className="bg-amber-50 rounded p-1 outline outline-zinc-400" placeholder="your name" onChange={(e) => {setName(e.target.value)}}/>
-      <Link
+      <button
         className="p-1 mt-1 bg-amber-50 rounded-xl outline outline-zinc-400 hover:bg-amber-100 transition-all cursor-pointer text-center"
-        href={`/game/${name}`}
+        onClick={handleStart}
         >
         Start Game
-      </Link>
+      </button>
     </div>
     
     <Scoreboard scores={scoreboard}/>
