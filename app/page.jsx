@@ -7,6 +7,7 @@ import getAllScores from "@/firebase/getScoreboard";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import sortScores from "@/utils/sortScores";
+import { QUOTES } from "@/data/quotes";
 
 
 const Scoreboard = ({scores}) => {
@@ -29,7 +30,7 @@ const Scoreboard = ({scores}) => {
             <div className="flex items-center justify-between">
               <div>
                 <h2>{score.name}</h2>
-                <h3>Score: {score.score}/15</h3>
+                <h3>Score: {score.score}/{QUOTES.length}</h3>
                 <h3>Time: {calculateTotalTime(score)}</h3>
               </div>
               <span className="text-sm text-gray-500 font-medium">

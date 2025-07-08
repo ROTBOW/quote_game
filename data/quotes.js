@@ -60,5 +60,9 @@ export const QUOTES = [
   {
     quote: "Oh I remember what I was gonna say, back in the Vietnam War…",
     speaker: 2 // Josiah
+  },
+  {
+    quote: "Do you consider the consequences of your actions have on those around you?",
+    speaker: 2 // Josiah
   }
 ];

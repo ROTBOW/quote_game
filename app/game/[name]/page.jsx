@@ -84,7 +84,7 @@ const Game = () => {
             setTimeout(() => (setShowWrong(false)), 500)
         }
 
-        if (idx + 1 >= 15) {
+        if (idx + 1 >= QUOTES.length) {
             addScore({
                 score: newScore,
                 name: params.name.trim().replace('%20', ' '),
@@ -121,7 +121,7 @@ const Game = () => {
 
             <div className='flex items-center'>
                 <div className={`${showWrong ? "animate-bounce" : "opacity-0"} text-red-500 text-2xl sm:text-3xl transition-all`}>wrong</div>
-                <div className='font-sans text-2xl mx-10'>{score} / 15</div>
+                <div className='font-sans text-2xl mx-10'>{score} / {QUOTES.length}</div>
                 <div className={`${showRight ? "animate-bounce" : "opacity-0"} text-green-500 text-2xl sm:text-3xl transition-all`}>right</div>
             </div>
         </main>
