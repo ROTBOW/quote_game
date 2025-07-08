@@ -105,9 +105,9 @@ const Game = () => {
 
 
             <ul className={`${(!start ? 'blur' : '')} flex justify-between mb-9 text-3xl`}>
-                <button className={buttonStyle} onClick={() => {handleButton(1)}}>Hans</button>
-                <button className={buttonStyle} onClick={() => {handleButton(0)}}>Jason</button>
-                <button className={buttonStyle} onClick={() => {handleButton(2)}}>Josiah</button>
+                <button className={`${buttonStyle} text-emerald-300`} onClick={() => {handleButton(1)}}>Hans</button>
+                <button className={`${buttonStyle} text-sky-300`} onClick={() => {handleButton(0)}}>Jason</button>
+                <button className={`${buttonStyle} text-red-400`} onClick={() => {handleButton(2)}}>Josiah</button>
             </ul>
 
 

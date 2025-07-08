@@ -13,7 +13,7 @@ const Scoreboard = ({scores}) => {
   
   
   return (
-  <div className="w-1/2 md:w-1/3 sm:bg-amber-900 flex flex-col items-center bg-amber-50 rounded">
+  <div className="w-5/6 md:w-1/3 flex flex-col items-center bg-amber-50 rounded">
     <h1 className="text-3xl underline mb-4">Scoreboard</h1>
 
     {scores && scores.length > 0 ? (
@@ -21,7 +21,7 @@ const Scoreboard = ({scores}) => {
         {scores.map((score, index) => (
           <li
             key={index}
-            className={`p-2 rounded shadow-md mx-2
+            className={`p-2 rounded shadow-md mx-4 my-1
               ${
               index % 2 === 0 ? 'bg-amber-100' : 'bg-amber-50'
               }`}
@@ -69,23 +69,23 @@ const Home = () => {
   }
   
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-     <h1 className="text-center text-2xl">
-      Quotes from <b className="text-emerald-300">Hans</b>, <b className="text-sky-300">Jason</b> and <b className="text-red-400">Josiah</b><br/>but can you tell who said which one?<br/><i className="text-sm">its not hard lol</i>
-    </h1>
+    <div className="flex flex-col items-center">
+      <h1 className="text-center text-2xl mt-10">
+        Quotes from <b className="text-emerald-300">Hans</b>, <b className="text-sky-300">Jason</b> and <b className="text-red-400">Josiah</b><br/>but can you tell who said which one?<br/><i className="text-sm">(its not hard lol)</i>
+      </h1>
     
-    <div className="flex flex-col">
-      <p className="w-[14rem] text-sm">When you hit start (and enter your name) you will see one quote at a time<br/>You'll rank based on how many you get right and how quickly you finish.</p>
-      <input type='text' className="bg-amber-50 rounded p-1 outline outline-zinc-400" placeholder="your name" onChange={(e) => {setName(e.target.value)}}/>
-      <button
-        className="p-1 mt-1 bg-amber-50 rounded-xl outline outline-zinc-400 hover:bg-amber-100 transition-all cursor-pointer text-center"
-        onClick={handleStart}
-        >
-        Start Game
-      </button>
-    </div>
+      <div className="flex flex-col my-20">
+        <p className="w-[14rem] text-sm">After hitting start you will see one quote at a time<br/>You'll rank based on how many you get right and how quickly you finish.</p>
+        <input type='text' className="bg-amber-50 rounded p-1 outline outline-zinc-400" placeholder="your name" onChange={(e) => {setName(e.target.value)}}/>
+        <button
+          className="p-1 mt-1 bg-amber-50 rounded-xl outline outline-zinc-400 hover:bg-amber-100 transition-all cursor-pointer text-center"
+          onClick={handleStart}
+          >
+          Start Game
+        </button>
+      </div>
     
-    <Scoreboard scores={scoreboard}/>
+      <Scoreboard scores={scoreboard}/>
     </div>
   );
 }
