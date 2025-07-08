@@ -60,6 +60,10 @@ const Game = () => {
     const [score, setScore] = useState(0);
     const [idx, setIdx] = useState(0);
 
+    // answer feedback
+    const [showRight, setShowRight] = useState(false);
+    const [showWrong, setShowWrong] = useState(false);
+
     const params = useParams();
     const router = useRouter();
 
@@ -71,8 +75,13 @@ const Game = () => {
         let newScore = score + 1
         if (guess === quotes[idx].speaker) {
             setScore(newScore);
+            setShowRight(true)
+            setTimeout(() => (setShowRight(false)), 500);
+
         } else {
             newScore -= 1;
+            setShowWrong(true)
+            setTimeout(() => (setShowWrong(false)), 500)
         }
 
         if (idx + 1 >= 15) {
@@ -110,8 +119,11 @@ const Game = () => {
                 <button className={`${buttonStyle} text-red-400`} onClick={() => {handleButton(2)}}>Josiah</button>
             </ul>
 
-
-            <div className='font-sans text-2xl'>{score} / 15</div>
+            <div className='flex items-center'>
+                <div className={`${showWrong ? "animate-bounce" : "opacity-0"} text-red-500 text-2xl sm:text-3xl transition-all`}>wrong</div>
+                <div className='font-sans text-2xl mx-10'>{score} / 15</div>
+                <div className={`${showRight ? "animate-bounce" : "opacity-0"} text-green-500 text-2xl sm:text-3xl transition-all`}>right</div>
+            </div>
         </main>
     )
 }

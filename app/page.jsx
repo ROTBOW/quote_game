@@ -17,7 +17,7 @@ const Scoreboard = ({scores}) => {
     <h1 className="text-3xl underline mb-4">Scoreboard</h1>
 
     {scores && scores.length > 0 ? (
-      <ol className="ml-0.5 w-full">
+      <ol className="ml-0.5 w-full pb-1 mb-2">
         {scores.map((score, index) => (
           <li
             key={index}
