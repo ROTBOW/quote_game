@@ -2,9 +2,10 @@
 
 // import 'dotenv/config';
 
+import { calculateTotalTime } from "@/utils/timeFuncs";
 import getAllScores from "@/firebase/getScoreboard";
-import calculateTotalTime from "@/utils/timeFunc";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Scoreboard = ({scores}) => {
   
@@ -64,7 +65,12 @@ const Home = () => {
     <div className="flex flex-col">
       <p className="w-[14rem] text-sm">When you hit start (and enter your name) you will see a list of quotes.<br/>You'll score based on how many you get right and how quickly you finish.</p>
       <input type='text' className="bg-amber-50 rounded p-1 outline outline-zinc-400" placeholder="your name"/>
-      <button className="p-1 mt-1 bg-amber-50 rounded-xl outline outline-zinc-400 hover:bg-amber-100 transition-all cursor-pointer">Start Game</button>
+      <Link
+        className="p-1 mt-1 bg-amber-50 rounded-xl outline outline-zinc-400 hover:bg-amber-100 transition-all cursor-pointer"
+        href="/game/test"
+        >
+        Start Game
+      </Link>
     </div>
     
     <Scoreboard scores={scoreboard}/>
