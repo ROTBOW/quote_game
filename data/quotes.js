@@ -62,7 +62,7 @@ export const QUOTES = [
     speaker: 2 // Josiah
   },
   {
-    quote: "Do you consider the consequences of your actions have on those around you?",
+    quote: "Do you consider the consequences that your actions have on those around you?",
     speaker: 2 // Josiah
   }
 ];
