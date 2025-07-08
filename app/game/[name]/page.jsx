@@ -88,7 +88,7 @@ const Game = () => {
         
     }
 
-    const buttonStyle = 'flex flex-col bg-amber-50 p-4 rounded outline outline-zinc-400 cursor-pointer hover:bg-amber-100 mx-5'
+    const buttonStyle = 'flex flex-col bg-amber-50 p-4 rounded outline outline-zinc-400 cursor-pointer hover:bg-amber-100 sm:mx-5 mx-1.5'
     return (
         <main className="flex flex-col items-center pt-10 h-screen">
             {
@@ -104,7 +104,7 @@ const Game = () => {
             </div>
 
 
-            <ul className={`${(!start ? 'blur' : '')} flex justify-between mb-9 text-3xl`}>
+            <ul className={`${(!start ? 'blur' : '')} flex justify-between  mb-9 text-3xl`}>
                 <button className={`${buttonStyle} text-emerald-300`} onClick={() => {handleButton(1)}}>Hans</button>
                 <button className={`${buttonStyle} text-sky-300`} onClick={() => {handleButton(0)}}>Jason</button>
                 <button className={`${buttonStyle} text-red-400`} onClick={() => {handleButton(2)}}>Josiah</button>
