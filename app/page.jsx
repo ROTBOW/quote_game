@@ -13,17 +13,18 @@ const Scoreboard = ({scores}) => {
   
   
   return (
-  <div className="w-2/3 flex flex-col items-center bg-amber-50 rounded">
+  <div className="w-1/2 md:w-1/3 sm:bg-amber-900 flex flex-col items-center bg-amber-50 rounded">
     <h1 className="text-3xl underline mb-4">Scoreboard</h1>
 
     {scores && scores.length > 0 ? (
-      <ol className="ml-0.5">
+      <ol className="ml-0.5 w-full">
         {scores.map((score, index) => (
           <li
             key={index}
-            className={`p-2 rounded shadow-md ${
+            className={`p-2 rounded shadow-md mx-2
+              ${
               index % 2 === 0 ? 'bg-amber-100' : 'bg-amber-50'
-            }`}
+              }`}
           >
             <div className="flex items-center justify-between">
               <div>
@@ -39,7 +40,7 @@ const Scoreboard = ({scores}) => {
         ))}
       </ol>
     ) : (
-      <p>No scores yet. Be the first to submit!</p>
+      <p>Loading...</p>
     )}
   </div>
   )
@@ -74,7 +75,7 @@ const Home = () => {
     </h1>
     
     <div className="flex flex-col">
-      <p className="w-[14rem] text-sm">When you hit start (and enter your name) you will see a list of quotes.<br/>You'll score based on how many you get right and how quickly you finish.</p>
+      <p className="w-[14rem] text-sm">When you hit start (and enter your name) you will see one quote at a time<br/>You'll rank based on how many you get right and how quickly you finish.</p>
       <input type='text' className="bg-amber-50 rounded p-1 outline outline-zinc-400" placeholder="your name" onChange={(e) => {setName(e.target.value)}}/>
       <button
         className="p-1 mt-1 bg-amber-50 rounded-xl outline outline-zinc-400 hover:bg-amber-100 transition-all cursor-pointer text-center"
