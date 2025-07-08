@@ -72,7 +72,7 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-center text-2xl mt-10">
-        Quotes from <b className="text-emerald-300">Hans</b>, <b className="text-sky-300">Jason</b> and <b className="text-red-400">Josiah</b><br/>but can you tell who said which one?<br/><i className="text-sm">(its not hard lol)</i>
+        Quotes from <b className="text-emerald-300 text-shadow-lg/30">Hans</b>, <b className="text-sky-300 text-shadow-lg/30">Jason</b> and <b className="text-red-400 text-shadow-lg/30">Josiah</b><br/>but can you tell who said which one?<br/><i className="text-sm">(its not hard lol)</i>
       </h1>
     
       <div className="flex flex-col my-20">
