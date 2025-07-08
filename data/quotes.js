@@ -64,5 +64,9 @@ export const QUOTES = [
   {
     quote: "Do you consider the consequences that your actions have on those around you?",
     speaker: 2 // Josiah
+  },
+  {
+    quote: "when was the last time you contemplate your mortality? you should do that.",
+    speaker: 2 // Josiah
   }
 ];
