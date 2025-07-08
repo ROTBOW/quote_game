@@ -6,7 +6,8 @@ import { calculateTotalTime } from "@/utils/timeFuncs";
 import getAllScores from "@/firebase/getScoreboard";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import sortScores from "@/utils/sortScores";
+
 
 const Scoreboard = ({scores}) => {
   
@@ -27,7 +28,7 @@ const Scoreboard = ({scores}) => {
             <div className="flex items-center justify-between">
               <div>
                 <h2>{score.name}</h2>
-                <h3>Score: {score.score}</h3>
+                <h3>Score: {score.score}/15</h3>
                 <h3>Time: {calculateTotalTime(score)}</h3>
               </div>
               <span className="text-sm text-gray-500 font-medium">
@@ -52,8 +53,7 @@ const Home = () => {
   useEffect(() => {
     getAllScores()
     .then(res => {
-      // console.log(res);
-      setscoreboard(Object.values(res));
+      setscoreboard(sortScores(res));
     })
     
   }, [])

@@ -68,15 +68,19 @@ const Game = () => {
     }, [])
 
     const handleButton = (guess) => {
+        let newScore = score + 1
         if (guess === quotes[idx].speaker) {
-            setScore(score => (score + 1));
+            setScore(newScore);
+        } else {
+            newScore -= 1;
         }
 
         if (idx + 1 >= 15) {
             addScore({
-                score: score,
-                name: params.name.trim()
-            }, start, end);
+                score: newScore,
+                name: params.name.trim().replace('%20', ' '),
+                time: getDiffInMs(start, end)
+            });
             router.push('/');
         } else {
             setIdx(idx => (idx + 1));
@@ -107,7 +111,7 @@ const Game = () => {
             </ul>
 
 
-            <div className='font-sans text-2xl'>{score} / 16</div>
+            <div className='font-sans text-2xl'>{score} / 15</div>
         </main>
     )
 }

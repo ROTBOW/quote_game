@@ -1,18 +1,12 @@
 import firebase_app from "./config";
-import { getFirestore, addDoc, Timestamp, collection } from "firebase/firestore";
+import { getFirestore, addDoc, collection } from "firebase/firestore";
 
 const db = getFirestore(firebase_app);
 
-const addScore = async (score, start, end) => {
+const addScore = async (score) => {
     
     let res = null;
     let err = null;
-    
-    // Setting time spent
-    score['start'] = Timestamp.fromDate(start);
-    score['end'] = Timestamp.fromDate(end);
-    console.log(score);
-    
 
     try {
         res = await addDoc(collection(db, 'scoreboard'), score)
