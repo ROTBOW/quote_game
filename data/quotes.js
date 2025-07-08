@@ -30,7 +30,7 @@ export const QUOTES = [
     speaker: 0 // Jason
   },
   {
-    quote: "I feel like your dog rn whines",
+    quote: "I feel like your dog rn *whines*",
     speaker: 0 // Jason
   },
   {
@@ -38,7 +38,7 @@ export const QUOTES = [
     speaker: 0 // Jason
   },
   {
-    quote: "Look it’s my favorite buffet, petco",
+    quote: "Look it's my favorite buffet, petco",
     speaker: 1 // Hans
   },
   {

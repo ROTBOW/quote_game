@@ -20,7 +20,7 @@ const Scoreboard = ({scores}) => {
           <li
             key={index}
             className={`p-2 rounded shadow-md ${
-              index % 2 === 0 ? 'bg-gray-100' : 'bg-white'
+              index % 2 === 0 ? 'bg-amber-100' : 'bg-amber-50'
             }`}
           >
             <div className="flex items-center justify-between">
@@ -45,11 +45,12 @@ const Scoreboard = ({scores}) => {
 
 const Home = () => {
   const [scoreboard, setscoreboard] = useState(null);
+  const [name, setName] = useState('');
 
   useEffect(() => {
     getAllScores()
     .then(res => {
-      console.log(res);
+      // console.log(res);
       setscoreboard(Object.values(res));
     })
     
@@ -64,10 +65,10 @@ const Home = () => {
     
     <div className="flex flex-col">
       <p className="w-[14rem] text-sm">When you hit start (and enter your name) you will see a list of quotes.<br/>You'll score based on how many you get right and how quickly you finish.</p>
-      <input type='text' className="bg-amber-50 rounded p-1 outline outline-zinc-400" placeholder="your name"/>
+      <input type='text' className="bg-amber-50 rounded p-1 outline outline-zinc-400" placeholder="your name" onChange={(e) => {setName(e.target.value)}}/>
       <Link
-        className="p-1 mt-1 bg-amber-50 rounded-xl outline outline-zinc-400 hover:bg-amber-100 transition-all cursor-pointer"
-        href="/game/test"
+        className="p-1 mt-1 bg-amber-50 rounded-xl outline outline-zinc-400 hover:bg-amber-100 transition-all cursor-pointer text-center"
+        href={`/game/${name}`}
         >
         Start Game
       </Link>
